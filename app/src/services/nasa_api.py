@@ -1,7 +1,7 @@
 import requests
 from config import settings
 
-NASA_API_KEY = settings.nasa_api_key
+NASA_API_KEY = settings.NASA_API_KEY
 
 
 def get_earth_image(lat: float, lon: float, date: str):

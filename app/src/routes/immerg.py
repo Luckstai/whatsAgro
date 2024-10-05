@@ -6,6 +6,7 @@ from shared.utils import validate_date
 
 router = APIRouter(prefix="/immerg_data", tags=["IMERG Data"])
 
+#API de precipitação
 @router.post("/", response_model=IMERGDataResponse)
 def fetch_immerg_data(request: IMERGDataRequest):
     if not (validate_date(request.start_date) and validate_date(request.end_date)):

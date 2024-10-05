@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import earth_image, gibs, power, immerg, ecostress
+from routes import earth_image, gibs, power, immerg, ecostress, onboarding
 
 app = FastAPI(
     title="NASA Agriculture Monitoring API",
@@ -13,6 +13,7 @@ app.include_router(gibs.router)
 app.include_router(power.router)
 app.include_router(immerg.router)
 app.include_router(ecostress.router)
+app.include_router(onboarding.router)
 
 @app.get("/")
 def read_root():

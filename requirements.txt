@@ -6,3 +6,5 @@ pydantic
 APScheduler==3.10.4
 twilio==9.3.3
 python-multipart==0.0.6
+boto3==1.35.34
+pandas==1.4.3

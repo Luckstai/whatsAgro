@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.routes import earth_image, gibs, power, immerg, ecostress, gpt
+from src.routes import earth_image, gibs, power, immerg, ecostress, gpt, messages
 from apscheduler.schedulers.background import BackgroundScheduler
 from src.services.nasa_api import get_precipitation_data
 from src.services.whatsapp import send_whatsapp_message
@@ -60,6 +60,7 @@ app.include_router(power.router)
 app.include_router(immerg.router)
 app.include_router(ecostress.router)
 app.include_router(gpt.router)
+app.include_router(messages.router)
 
 @app.get("/")
 def read_root():

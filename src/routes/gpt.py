@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Response
-from services.gpt_api import get_gpt_response
-from schemas.gpt import GptDataRequest
+from src.services.gpt_api import get_gpt_response
+from src.schemas.gpt import GptDataRequest
 from fastapi.responses import JSONResponse
 router = APIRouter(prefix="/ask_gpt", tags=["GPT"])
 

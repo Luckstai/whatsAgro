@@ -1,8 +1,7 @@
-# app/routes/ecostress.py
 from fastapi import APIRouter, HTTPException
-from schemas.ecostress import EcostressDataRequest, EcostressDataResponse
-from services.nasa_api import get_evapotranspiration_data
-from shared.utils import validate_date
+from src.schemas.ecostress import EcostressDataRequest, EcostressDataResponse
+from src.services.nasa_api import get_evapotranspiration_data
+from src.shared.utils import validate_date
 
 router = APIRouter(prefix="/ecostress_data", tags=["ECOSTRESS Data"])
 

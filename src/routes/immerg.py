@@ -1,8 +1,8 @@
 # app/routes/immerg.py
 from fastapi import APIRouter, HTTPException
-from schemas.immerg import IMERGDataRequest, IMERGDataResponse
-from services.nasa_api import get_precipitation_data
-from shared.utils import validate_date
+from src.schemas.immerg import IMERGDataRequest, IMERGDataResponse
+from src.services.nasa_api import get_precipitation_data
+from src.shared.utils import validate_date
 
 router = APIRouter(prefix="/immerg_data", tags=["IMERG Data"])
 

@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+requests
+python-dotenv
+pydantic
+APScheduler==3.10.4
+twilio==9.3.3

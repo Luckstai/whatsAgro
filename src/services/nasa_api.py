@@ -1,5 +1,5 @@
 import requests
-from config import settings
+from src.config import settings
 
 NASA_API_KEY = settings.NASA_API_KEY
 

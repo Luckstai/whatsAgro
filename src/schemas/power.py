@@ -1,11 +1,12 @@
-from typing import Dict
 from pydantic import BaseModel
+from typing import Dict
 
-class EcostressDataRequest(BaseModel):
+class PowerDataRequest(BaseModel):
     latitude: float
     longitude: float
     start_date: str  # Formato: YYYYMMDD
     end_date: str    # Formato: YYYYMMDD
+    parameters: str  # Ex: "T2M,PRECTOT"
 
-class EcostressDataResponse(BaseModel):
-    evapotranspiration_data: Dict
+class PowerDataResponse(BaseModel):
+    data: Dict

@@ -1,8 +1,8 @@
 # app/routes/gibs.py
 from fastapi import APIRouter, HTTPException, Response
-from schemas.gibs import GIBSImageRequest, GIBSImageResponse
-from services.nasa_api import get_gibs_image
-from shared.utils import validate_date
+from src.schemas.gibs import GIBSImageRequest, GIBSImageResponse
+from src.services.nasa_api import get_gibs_image
+from src.shared.utils import validate_date
 
 router = APIRouter(prefix="/gibs_image", tags=["GIBS Image"])
 

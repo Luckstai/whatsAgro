@@ -10,5 +10,8 @@ class Settings:
     ASSISTANT_ID_GPT: str = os.getenv("ASSISTANT_ID_GPT")
     S3_BUCKET_NAME: str = os.getenv("S3_BUCKET_NAME")
     RADIUS_KM: str = os.getenv("RADIUS_KM")
+    TOKEN_EARTHDATA: str = os.getenv("TOKEN_EARTHDATA")
+    AWS_ACCESS_KEY: str = os.getenv("AWS_ACCESS_KEY")
+    AWS_SECRET_ACCESS_KEY: str = os.getenv("AWS_SECRET_ACCESS_KEY")
 
 settings = Settings()

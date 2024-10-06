@@ -4,6 +4,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from src.services.nasa_api import get_precipitation_data
 from src.services.whatsapp import send_whatsapp_message
 from datetime import datetime
+from src.shared.data_pipeline.data_pipeline_job import data_pipeline_job_run
 
 app = FastAPI(
     title="NASA Agriculture Monitoring API",
@@ -48,10 +49,18 @@ def start_scheduler():
     scheduler.start()
     print("Cron job iniciado...")
 
+def start_data_pipeline():
+    scheduler = BackgroundScheduler()
+    # scheduler.add_job(data_pipeline_job_run, "interval", hours=24)  # Roda a cada 1 hora 
+    scheduler.add_job(data_pipeline_job_run, "interval", minutes=1)  # Roda a cada 5 minutos
+    scheduler.start()
+    print("Cron job data pipeline iniciado...")
+
 # Iniciar o agendador quando a aplicação começar
 @app.on_event("startup")
 def startup_event():
     start_scheduler()
+    start_data_pipeline()
 
 # Incluir as rotas
 app.include_router(earth_image.router)

@@ -65,23 +65,3 @@ app.include_router(messages.router)
 @app.get("/")
 def read_root():
     return {"message": "Bem-vindo à NASA Agriculture Monitoring API!"}
-
-
-
-
-# from services.gpt_api import ask_chatgpt
-
-
-# # pergunta = "Qual é a capital da França?"
-# pergunta = "Estou localizado em São Paulo, gostaria de saber quais as chances de chuva para os próximos dias?"
-# pergunta = "Como está a umidade do solo hoje no Rio De Janeiro?"
-# resposta = ask_chatgpt(pergunta)
-
-# api_endpoint_config = {
-#     ""
-# }
-
-# print(resposta)
-
-
-#run --> uvicorn main:app --reload

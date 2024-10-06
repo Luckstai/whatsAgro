@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
-from schemas.power import PowerDataRequest, PowerDataResponse
-from services.nasa_api import get_power_data
-from shared.utils import validate_date
+from src.schemas.power import PowerDataRequest, PowerDataResponse
+from src.services.nasa_api import get_power_data
+from src.shared.utils import validate_date
 
 router = APIRouter(prefix="/power_data", tags=["POWER Data"])
 

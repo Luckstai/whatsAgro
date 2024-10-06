@@ -1,5 +1,5 @@
 import requests
-from config import settings
+from src.config import settings
 
 API_KEY_GPT = settings.API_KEY_GPT
 API_URL_GPT = settings.API_URL_GPT

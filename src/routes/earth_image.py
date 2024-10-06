@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
-from schemas.earth_image import EarthImageRequest, EarthImageResponse
-from services.nasa_api import get_earth_image
-from shared.utils import validate_date
+from src.schemas.earth_image import EarthImageRequest, EarthImageResponse
+from src.services.nasa_api import get_earth_image
+from src.shared.utils import validate_date
 
 router = APIRouter(prefix="/earth_image", tags=["Earth Image"])
 

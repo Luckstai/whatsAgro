@@ -5,3 +5,4 @@ python-dotenv
 pydantic
 APScheduler==3.10.4
 twilio==9.3.3
+python-multipart==0.0.6

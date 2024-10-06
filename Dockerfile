@@ -12,10 +12,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Etapa 5: Copiar todo o código da pasta app/src para o diretório de trabalho
 COPY . /app
-RUN pwd
-RUN ls -la /app
-# Etapa 6: Copiar o arquivo .env para o diretório de trabalho (opcional se usar variáveis de ambiente no deploy)
-COPY .env /app/.env
 
 # Etapa 7: Expor a porta 8000 (porta padrão usada pelo Uvicorn)
 EXPOSE 8000

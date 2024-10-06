@@ -1,4 +1,3 @@
-# app/routes/immerg.py
 from fastapi import APIRouter, HTTPException
 from src.schemas.immerg import IMERGDataRequest, IMERGDataResponse
 from src.services.nasa_api import get_precipitation_data

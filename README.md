@@ -64,4 +64,16 @@ The project uses a cloud-based microservice architecture, integrating multiple A
 
 ---
 
-#### Team WhatsAgro 🌾🚜
+# Links
+
+- [Project Demo](https://www.youtube.com/shorts/Sib7wPyDzaM)
+- [Pitch Deck](https://www.canva.com/design/DAGS0U-tBjQ/lUXLbsBm-DImlKl-1ZsIJw/edit?utm_content=DAGS0U-tBjQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+# Team WhatsAgro 🌾🚜
+
+- [Leonardo Ishii](https://www.linkedin.com/in/leonardoishii)
+- [Lucas Paiva](https://www.linkedin.com/in/lucashenri)
+- [Lucas Lima](https://www.linkedin.com/in/lucas-lds)
+- [Marcio Jacob](https://www.linkedin.com/in/marcio-jacob)
+- [Matheus Macedo](https://www.linkedin.com/in/matheuscont)
+- [Matheus Poterucha](https://www.linkedin.com/in/matheuspoterucha)

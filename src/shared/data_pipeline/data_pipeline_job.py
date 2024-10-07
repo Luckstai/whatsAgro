@@ -21,14 +21,6 @@ if not os.path.isdir("Dados/raw"):
 if not os.path.isdir("Dados/trusted"):
   os.mkdir("Dados/trusted")
 
-
-# URL do diretório HTTPS
-directory_url_LPRM = "https://hydro1.gesdisc.eosdis.nasa.gov/data/WAOB/LPRM_AMSR2_DS_A_SOILM3.001/"
-file_ext_LPRM = ".nc4"
-
-directory_url_NLDAS = "https://hydro1.gesdisc.eosdis.nasa.gov/data/NLDAS/NLDAS_NOAH0125_H.2.0/"
-file_ext_NLDAS = ".nc"
-
 # Criando um cliente S3
 s3 = boto3.client(
 's3',
@@ -146,8 +138,7 @@ def trusted_LPRM(filenames, bucket_name=S3_BUCKET_NAME):
         except:
           print("except")
     file_name = f"trusted/{f.split('_', 1)[0]}/{f.split('.', 1)[0]}.csv"
-    with s3.Object(bucket_name, file_name).put(Body=results.to_csv(index=False)):
-        print(f"Arquivo {file_name} salvo com sucesso no bucket {bucket_name}")
+    s3.put_object(Bucket=bucket_name, Key=file_name, Body=results.to_csv(index=False))
   return
 
 
@@ -177,19 +168,24 @@ def trusted_NLDAS(filenames, bucket_name=S3_BUCKET_NAME):
         except:
           print(var_name, "except")
     file_name = f"trusted/{f.split('_', 1)[0]}/{f.rsplit('.', 1)[0]}.csv"
-    with s3.Object(bucket_name, file_name).put(Body=results.to_csv(index=False)):
-        print(f"Arquivo {file_name} salvo com sucesso no bucket {bucket_name}")
+    s3.put_object(Bucket=bucket_name, Key=file_name, Body=results.to_csv(index=False))
   return
 
 def data_pipeline_job_run():
-    filename = get_last_data(directory_url_LPRM, file_ext_LPRM)
-    directory_url_LPRM, filename = filename.rsplit("/", 1)
-    filenames = [filename]
-    get_datas_raw(directory_url_LPRM, filenames)
-    trusted_LPRM(filenames)
+  print('INICIANDO DATA PIPELINE')
+  directory_url_LPRM = "https://hydro1.gesdisc.eosdis.nasa.gov/data/WAOB/LPRM_AMSR2_DS_A_SOILM3.001/"
+  file_ext_LPRM = ".nc4"
+  directory_url_NLDAS = "https://hydro1.gesdisc.eosdis.nasa.gov/data/NLDAS/NLDAS_NOAH0125_H.2.0/"
+  file_ext_NLDAS = ".nc"
+  
+  filename = get_last_data(directory_url_LPRM, file_ext_LPRM)
+  directory_url_LPRM, filename = filename.rsplit("/", 1)
+  filenames = [filename]
+  get_datas_raw(directory_url_LPRM, filenames)
+  trusted_LPRM(filenames)
 
-    filename = get_last_data(directory_url_NLDAS, file_ext_NLDAS)
-    directory_url_NLDAS, filename = filename.rsplit("/", 1)
-    filenames = [filename]
-    get_datas_raw(directory_url_NLDAS, filenames)
-    trusted_NLDAS(filenames)
+  filename = get_last_data(directory_url_NLDAS, file_ext_NLDAS)
+  directory_url_NLDAS, filename = filename.rsplit("/", 1)
+  filenames = [filename]
+  get_datas_raw(directory_url_NLDAS, filenames)
+  trusted_NLDAS(filenames)

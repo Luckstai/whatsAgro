@@ -52,7 +52,7 @@ def start_scheduler():
 def start_data_pipeline():
     scheduler = BackgroundScheduler()
     # scheduler.add_job(data_pipeline_job_run, "interval", hours=24)  # Roda a cada 1 hora 
-    scheduler.add_job(data_pipeline_job_run, "interval", minutes=1)  # Roda a cada 5 minutos
+    scheduler.add_job(data_pipeline_job_run, "interval", minutes=5)  # Roda a cada 5 minutos
     scheduler.start()
     print("Cron job data pipeline iniciado...")
 

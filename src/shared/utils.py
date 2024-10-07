@@ -1,4 +1,4 @@
-from app.s3_utils import get_latest_csv_from_s3
+from src.shared.s3.s3_service import get_latest_csv_from_s3
 from fastapi import APIRouter, HTTPException
 from datetime import datetime
 import pandas as pd
